@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+# Entorno virtual que contiene las dependencias instaladas localmente.
+venv/
+
+
 # Distribution / packaging
 .Python
 build/
