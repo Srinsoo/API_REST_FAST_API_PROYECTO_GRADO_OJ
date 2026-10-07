@@ -2,7 +2,8 @@
 Este es el repositorio principal del Back-End del proyecto de grado.
 <<<<<<< HEAD
 
-
+#Requisitos
+Excel debe contar con columna "Fecha_Hora" y columna "Consumo" con valores en kwatts  
 
 #Documentación de la estructura
 

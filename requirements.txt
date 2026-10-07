@@ -2,3 +2,6 @@ fastapi
 uvicorn
 xgboost
 pandas
+requests
+scikit-learn 
+openpyxl

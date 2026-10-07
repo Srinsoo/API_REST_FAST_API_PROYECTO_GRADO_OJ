@@ -1,8 +1,6 @@
 from fastapi import FastAPI
+from App.Routes.prediction import router as prediction_router
 
 app = FastAPI()
 
-@app.get('/')
-
-def home():
-    return "Hola, mundo!"
+app.include_router(prediction_router)
