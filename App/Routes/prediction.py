@@ -1,5 +1,7 @@
 from fastapi import APIRouter, UploadFile, File, Form
-from App.Services.prediction_service import predict_from_excel
+from app.Services.prediction_service import predict_from_excel
+
+
 
 router = APIRouter(prefix="/prediction", tags=["Prediction"])
 

@@ -1,7 +1,8 @@
 import pandas as pd
-from App.Ml.preprocessing import preprocess_data
-from App.Ml.model import load_model
+from app.Ml.preprocessing import preprocess_data
+from app.Ml.model import load_model
 
+model = load_model()
 
 async def predict_from_excel(file, lat, long):
 
@@ -9,11 +10,10 @@ async def predict_from_excel(file, lat, long):
 
     df = preprocess_data(df,lat,long)
 
-    # model = load_model()
 
-    # predictions = model.predict(df)
+
+    predictions = model.predict(df)
 
     return {
-        # "predictions": predictions.tolist()
-        "Excel preprocesado"
+        "predictions": predictions.tolist()
     }
