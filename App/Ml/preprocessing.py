@@ -1,7 +1,7 @@
 import pandas as pd
 import requests
 
-def preprocess_data(df):
+def preprocess_data(df,latitude,longitude):
 
     df = df.dropna()
     # Creamos una columna solo con la fecha (YYYY-MM-DD) sin la hora para buscar el clima
@@ -21,12 +21,12 @@ def preprocess_data(df):
    
     # Parametros coordenadas Sincelejo
     # 3. Coordenadas de Sincelejo, Sucre
-    lat = 9.3045
-    lon = -75.3905
+    # lat = 9.3045
+    # lon = -75.3905
 
     url = (
         f"https://archive-api.open-meteo.com/v1/archive?"
-        f"latitude={lat}&longitude={lon}&start_date={start_date}&end_date={end_date}"
+        f"latitude={latitude}&longitude={longitude}&start_date={start_date}&end_date={end_date}"
         f"&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation"
     )
 
@@ -42,7 +42,7 @@ def preprocess_data(df):
             'Temperatura (°C)': hourly_data['temperature_2m'],
             'Humedad Relativa (%)': hourly_data['relative_humidity_2m'],
             'Sensación Térmica (°C)': hourly_data['apparent_temperature'],
-            'Precipitación (mm)': hourly_data['precipitation']
+            # 'Precipitación (mm)': hourly_data['precipitation']
         })
 
         # 5. Crear la columna del Día de la Semana en español basada en la fecha/hora
@@ -58,7 +58,7 @@ def preprocess_data(df):
         # 7. Guardar el resultado en un nuevo archivo Excel
         archivo_salida = 'excel_registro_preprocesado.xlsx'
         df_final.to_excel(archivo_salida, index=False)
-    
+        
         print(f"¡Listo! Archivo horario guardado como: '{archivo_salida}'")
 
     else:

@@ -3,11 +3,11 @@ from App.Ml.preprocessing import preprocess_data
 from App.Ml.model import load_model
 
 
-async def predict_from_excel(file):
+async def predict_from_excel(file, lat, long):
 
     df = pd.read_excel(file.file)
 
-    df = preprocess_data(df)
+    df = preprocess_data(df,lat,long)
 
     # model = load_model()
 
