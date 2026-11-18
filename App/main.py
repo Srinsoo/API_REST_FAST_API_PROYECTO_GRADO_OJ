@@ -6,6 +6,9 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+@app.get("/")
+def read_root():
+    return {"status": "online", "message": "API de Predicción activa"}
 
 
 app.add_middleware(
