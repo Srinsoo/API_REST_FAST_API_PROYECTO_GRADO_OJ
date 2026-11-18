@@ -1,11 +1,13 @@
-import joblib
+
 import xgboost as xgb
 from pathlib import Path
 
-MODEL_PATH = Path(__file__).parent / "modelo_xgboost.json"
+MODELS_DIR = Path("Models")
+MODELS_DIR.mkdir(parents=True, exist_ok=True)
+MODEL_PATH= MODELS_DIR / "Modelo_XGboost.json"
 
 
 def load_model():
-    model = xgb.XGBRegressor()
-    model.load_model(str(MODEL_PATH))
-    return model
+      model = xgb.XGBRegressor()
+      model.load_model(str(MODEL_PATH))
+      return model
